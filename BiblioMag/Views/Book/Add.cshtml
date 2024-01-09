@@ -1,0 +1,15 @@
+﻿@model BiblioMag.Models.Book
+
+<h2>Добавить новую книгу</h2<form asp-controller="Book" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить книгу</button>
+</form>

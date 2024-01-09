@@ -1,0 +1,6 @@
+﻿@model BiblioMag.Models.Book
+
+<h2>@Model.Title</h2>
+<p>Автор: @Model.Author</p>
+
+<a asp-controller="Book" asp-action="Download" asp-route-id="@Model.Id">Скачать книгу</a>

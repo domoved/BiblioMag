@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using BiblioMag.Models;
 using BiblioMag.Models.Services;
-using System;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace BiblioMag.Controllers
 {
@@ -32,7 +28,7 @@ namespace BiblioMag.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("Details/{id}")]
         public async Task<IActionResult> Details(int id)
         {
             try
@@ -50,49 +46,30 @@ namespace BiblioMag.Controllers
             }
         }
 
-        [HttpGet("AddBook")]
-        public IActionResult Add()
-        {
-            try
-            {
-                var newBook = new Book();
-                return View(newBook);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding a new book: " + ex.Message);
-            }
-        }
-
-        [HttpPost("AddBook")]
+        [HttpPost("Add")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(Book newBook, IFormFile file)
+        public async Task<IActionResult> Add(Book newBook, IFormFile? file)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    if (file != null && file.Length > 0)
+                    if (file is { Length: > 0 })
                     {
-                        // Проверка типа файла
                         if (file.ContentType != "application/pdf")
                         {
                             ModelState.AddModelError("FileContent", "Загруженный файл должен быть в формате PDF.");
                             return View(newBook);
                         }
 
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            await file.CopyToAsync(memoryStream);
-                            newBook.FileContent = memoryStream.ToArray();
-                        }
+                        using var memoryStream = new MemoryStream();
+                        await file.CopyToAsync(memoryStream);
+                        newBook.FileContent = memoryStream.ToArray();
                     }
 
                     await BookService.AddBookAsync(newBook);
-                    return RedirectToAction("Index");
                 }
-
-                return View(newBook);
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
@@ -101,7 +78,7 @@ namespace BiblioMag.Controllers
         }
 
 
-        [HttpPost("{id}/remove")]
+        [HttpPost("Remove/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Remove(int id)
         {
@@ -123,7 +100,7 @@ namespace BiblioMag.Controllers
             }
         }
 
-        [HttpGet("{id}/download")]
+        [HttpGet("Download/{id}")]
         public async Task<IActionResult> Download(int id)
         {
             try

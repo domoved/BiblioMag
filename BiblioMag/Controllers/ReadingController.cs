@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
 using BiblioMag.Models.Services;
-using System;
 
 namespace BiblioMag.Controllers
 {
@@ -16,7 +13,7 @@ namespace BiblioMag.Controllers
             ReadingService = readingService;
         }
 
-        [HttpPost("{bookId}/start-reading")]
+        [HttpPost("StartReading/{bookId}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> StartReading(int bookId)
         {
@@ -31,7 +28,7 @@ namespace BiblioMag.Controllers
             }
         }
 
-        [HttpPost("{bookId}/end-reading")]
+        [HttpPost("EndReading/{bookId}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EndReading(int bookId)
         {

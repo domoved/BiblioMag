@@ -1,12 +1,11 @@
 ﻿using BiblioMag.Models.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System;
-using System.Threading.Tasks;
+using BiblioMag.Models;
+using Serilog;
 
 namespace BiblioMag.Controllers
 {
-    [Route("Home")]
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly IBookService BookService;
@@ -23,7 +22,7 @@ namespace BiblioMag.Controllers
                 var books = await BookService.GetAllBooksAsync();
                 if (books.Any())
                 {
-                    return View(books);
+                    return View("Index", books);
                 }
                 else
                 {
@@ -35,13 +34,14 @@ namespace BiblioMag.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
             }
         }
-
         [HttpGet("AddBook")]
         public IActionResult AddBook()
         {
             try
             {
-                return View();
+                Log.Information("AddBook method called");
+                return RedirectToAction("Add", "Book", new { area = "" });
+
             }
             catch (Exception ex)
             {
@@ -54,7 +54,7 @@ namespace BiblioMag.Controllers
         {
             try
             {
-                return RedirectToAction("Add", "Book");
+                return View("NoBooksFound");
             }
             catch (Exception ex)
             {

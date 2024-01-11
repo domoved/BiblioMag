@@ -52,7 +52,7 @@ namespace BiblioMag.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("BiblioMag.Models.ReadingSession", b =>
@@ -74,7 +74,7 @@ namespace BiblioMag.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ReadingSessions");
+                    b.ToTable("ReadingSessions", (string)null);
                 });
 #pragma warning restore 612, 618
         }

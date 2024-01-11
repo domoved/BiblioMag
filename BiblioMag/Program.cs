@@ -1,9 +1,16 @@
 using BiblioMag.Models;
 using BiblioMag.Models.Repositories;
 using BiblioMag.Models.Services;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "XDD";
+});
 
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
@@ -17,7 +24,30 @@ builder.Services.AddScoped<IReadingService, ReadingService>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IReadingSessionRepository, ReadingSessionRepository>();
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog();
+
 var app = builder.Build();
+
+app.Use((context, next) =>
+{
+    string path = context.Request.Path.Value;
+
+    if (path != null && path.ToLower().Contains("/book/addbook"))
+    {
+        var antiforgery = context.RequestServices.GetRequiredService<IAntiforgery>();
+        var tokens = antiforgery.GetAndStoreTokens(context);
+        context.Response.Cookies.Append("XDD", tokens.RequestToken,
+            new CookieOptions() { HttpOnly = false });
+    }
+
+    return next(context);
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -36,12 +66,17 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapFallbackToController("Index", "Home");
+
+    endpoints.MapControllerRoute(
+        name: "add",
+        pattern: "Book/Add",
+        defaults: new { controller = "Book", action = "Add" });
+
     endpoints.MapControllerRoute(
         name: "noBooksFound",
         pattern: "Home/NoBooksFound",
         defaults: new { controller = "Home", action = "NoBooksFound" });
-
-    endpoints.MapFallbackToController("Index", "Home");
 
     endpoints.MapControllerRoute(
         name: "default",

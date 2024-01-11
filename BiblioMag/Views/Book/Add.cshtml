@@ -1,27 +1,17 @@
 ﻿@model BiblioMag.Models.Book
 
-<h2>Add New Book</h2>
+<h2>Добавить новую книгу (1)</h2>
 
-<form asp-controller="Book" asp-action="AddBook" method="post" enctype="multipart/form-data">
+<form asp-controller="Book" asp-action="Add" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    
+    @Html.AntiForgeryToken()
     @foreach (var property in ViewData.ModelMetadata.Properties)
     {
-        if (property.PropertyName == "Id")
-        {
-            if (Model.Id == 0)
-            {
-                Model.Id = 0;
-            }
-            Model.Id += 1;
-        }
-        if (property.PropertyName == "ReadingStatus")
-        {
-            Model.ReadingStatus = BiblioMag.Models.ReadingStatus.NotStarted;
-        }
+
+        
         if (property.PropertyName != "Id" && 
-        property.PropertyName != "FileContent" &&
-        property.PropertyName != "ReadingStatus")
+            property.PropertyName != "FileContent" &&
+            property.PropertyName != "ReadingStatus")
         {
             <p>@property.PropertyName</p>
             <div class="form-group">
@@ -30,23 +20,13 @@
                 <span asp-validation-for="@property.PropertyName" class="text-danger"></span>
             </div>
         }
-        
     }
+    
     <p>FileContent</p>
     <div class="form-group">
         <label asp-for="FileContent" class="control-label"></label>
         <input asp-for="FileContent" type="file" class="form-control" />
         <span asp-validation-for="FileContent" class="text-danger"></span>
-    </div>
-    @foreach (var property in ViewData.ModelMetadata.Properties)
-    {
-        if (property.PropertyName != "Id" && 
-            property.PropertyName != "FileContent" &&
-            property.PropertyName != "ReadingStatus")
-        {
-            if (Model.GetType().GetProperty(property.PropertyName).GetValue(Model, null) == null) 
-            Model.GetType().GetProperty(property.PropertyName).SetValue(Model, "", null);
-        }
-    }
-    <button type="submit" class="btn btn-primary">Add Book</button>
+    </div>   
+    <button type="submit" class="btn btn-primary">Добавить книгу</button>
 </form>

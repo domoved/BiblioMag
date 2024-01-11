@@ -1,7 +1,10 @@
-﻿@model IEnumerable<BiblioMag.Models.Book>
-<h2>No books found</h2>
+﻿@{
+    ViewData["Title"] = "Книг не найдено";
+}
 
-<p>There are no books in the library.</p>
-<p>
-    <a asp-controller="Book" asp-action="AddBook" class="btn btn-primary">Добавить книгу</a>
-</p>
+<h2>Книг не найдено</h2>
+
+<p>Нет книг в вашей библиотеке. Добавьте их</p>
+  <form action="~/Book/AddBook">
+   <button>Добавить книгу</button>
+  </form>

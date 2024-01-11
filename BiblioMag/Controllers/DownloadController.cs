@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
 using BiblioMag.Models.Services;
-using System;
 
 namespace BiblioMag.Controllers
 {
@@ -16,7 +13,7 @@ namespace BiblioMag.Controllers
             DownloadService = downloadService;
         }
 
-        [HttpGet("{bookId}/download")]
+        [HttpGet("DownloadBook/{bookId}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DownloadBook(int bookId)
         {

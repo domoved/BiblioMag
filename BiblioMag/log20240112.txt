@@ -1,0 +1,965 @@
+2024-01-12 01:46:17.643 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:46:18.503 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:46:18.846 +05:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:46:18.888 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:46:18.908 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:46:18.925 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:46:19.039 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:46:19.040 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:46:19.044 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:46:19.045 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:46:19.045 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:46:19.674 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:46:19.739 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:46:19.757 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:46:19.768 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:46:19.944 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:46:19.973 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:46:19.979 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 216.0251ms
+2024-01-12 01:46:19.981 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:46:19.998 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 327.0403ms
+2024-01-12 01:46:20.000 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:46:20.010 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:46:20.014 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:46:20.021 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:46:20.054 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 35.3998ms.
+2024-01-12 01:46:20.055 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 38.6498ms
+2024-01-12 01:46:20.057 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:46:20.059 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 59.4813ms
+2024-01-12 01:46:20.989 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:46:20.996 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:46:20.997 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:46:21.035 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:46:21.039 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:46:21.042 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:46:21.043 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 43.9284ms
+2024-01-12 01:46:21.044 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:46:21.046 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 56.2739ms
+2024-01-12 01:46:21.050 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:46:21.052 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:46:21.053 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:46:21.055 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:46:21.057 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.7767ms.
+2024-01-12 01:46:21.059 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 4.2846ms
+2024-01-12 01:46:21.060 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:46:21.061 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 11.5037ms
+2024-01-12 01:48:35.530 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:48:36.369 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:48:36.840 +05:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:48:36.885 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:48:36.904 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:48:36.921 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:48:37.036 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:48:37.037 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:48:37.040 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:48:37.040 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:48:37.041 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:48:37.740 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:48:37.807 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:37.838 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:37.863 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:48:38.103 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:48:38.149 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:48:38.158 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 305.7418ms
+2024-01-12 01:48:38.162 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:38.191 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 456.3648ms
+2024-01-12 01:48:38.194 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:48:38.209 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:38.214 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:38.231 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:48:38.283 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 55.5058ms.
+2024-01-12 01:48:38.285 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 60.6662ms
+2024-01-12 01:48:38.289 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:38.293 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 98.4178ms
+2024-01-12 01:48:39.016 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:48:39.023 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:39.024 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:39.063 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:48:39.071 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:48:39.074 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:48:39.075 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 48.8209ms
+2024-01-12 01:48:39.077 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:39.078 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 61.5134ms
+2024-01-12 01:48:39.081 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:48:39.084 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:39.084 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:39.087 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:48:39.088 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.1013ms.
+2024-01-12 01:48:39.090 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.7321ms
+2024-01-12 01:48:39.092 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:39.094 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 12.0268ms
+2024-01-12 01:48:39.561 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:48:39.564 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:39.564 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:39.568 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:48:39.574 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:48:39.580 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:48:39.581 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 14.2203ms
+2024-01-12 01:48:39.584 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:39.585 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 24.2658ms
+2024-01-12 01:48:39.590 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:48:39.592 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:39.593 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:39.599 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:48:39.601 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.9366ms.
+2024-01-12 01:48:39.603 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.7176ms
+2024-01-12 01:48:39.605 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:39.606 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 16.9219ms
+2024-01-12 01:48:43.084 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/Add - -
+2024-01-12 01:48:43.086 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:43.087 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:43.090 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:48:43.094 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:48:43.098 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:48:43.099 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.8272ms
+2024-01-12 01:48:43.100 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:43.101 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/Add - - - 302 0 - 17.0191ms
+2024-01-12 01:48:43.105 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:48:43.106 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:43.107 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:43.109 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:48:43.110 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.2955ms.
+2024-01-12 01:48:43.112 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.1328ms
+2024-01-12 01:48:43.113 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:43.114 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.5395ms
+2024-01-12 01:48:46.243 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook - -
+2024-01-12 01:48:46.245 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:46.247 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:46.251 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:48:46.255 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:48:46.258 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:48:46.259 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.6925ms
+2024-01-12 01:48:46.260 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:48:46.261 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook - - - 302 0 - 18.6397ms
+2024-01-12 01:48:46.265 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:48:46.267 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:46.267 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:48:46.270 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:48:46.271 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.2558ms.
+2024-01-12 01:48:46.272 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.7053ms
+2024-01-12 01:48:46.274 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:48:46.275 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.5919ms
+2024-01-12 01:51:01.654 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:51:02.441 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:02.755 +05:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:51:02.908 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:51:02.927 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:51:02.944 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:51:03.066 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:51:03.068 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:51:03.070 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:51:03.071 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:51:03.071 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:51:03.740 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:51:03.791 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:03.810 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:03.821 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:04.013 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:04.046 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:04.056 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 236.4588ms
+2024-01-12 01:51:04.059 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:04.083 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 346.3243ms
+2024-01-12 01:51:04.084 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:04.094 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:04.097 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:04.104 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:04.135 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 34.1749ms.
+2024-01-12 01:51:04.136 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 37.1531ms
+2024-01-12 01:51:04.138 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:04.142 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 57.3245ms
+2024-01-12 01:51:04.840 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:51:04.848 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:04.849 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:04.886 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:04.890 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:04.895 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:04.896 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 45.2619ms
+2024-01-12 01:51:04.897 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:04.899 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 58.7131ms
+2024-01-12 01:51:04.905 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:04.907 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:04.908 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:04.910 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:04.912 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.1153ms.
+2024-01-12 01:51:04.913 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.6066ms
+2024-01-12 01:51:04.915 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:04.916 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 11.1053ms
+2024-01-12 01:51:05.781 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:51:05.784 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:05.785 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:05.787 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:05.790 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:05.794 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:05.795 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.5519ms
+2024-01-12 01:51:05.797 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:05.799 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 17.9737ms
+2024-01-12 01:51:05.803 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:05.804 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:05.805 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:05.808 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:05.811 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.4742ms.
+2024-01-12 01:51:05.813 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 4.217ms
+2024-01-12 01:51:05.814 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:05.815 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 12.6186ms
+2024-01-12 01:51:11.402 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/Add - -
+2024-01-12 01:51:11.404 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:11.405 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:11.409 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:11.412 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:11.415 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:11.416 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 7.7835ms
+2024-01-12 01:51:11.417 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:11.419 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/Add - - - 302 0 - 16.9564ms
+2024-01-12 01:51:11.423 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:11.424 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:11.425 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:11.427 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:11.429 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.8861ms.
+2024-01-12 01:51:11.431 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.8614ms
+2024-01-12 01:51:11.433 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:11.435 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 12.2705ms
+2024-01-12 01:51:13.526 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook - -
+2024-01-12 01:51:13.529 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:13.530 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:13.533 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:13.536 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:13.540 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:13.540 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 7.7631ms
+2024-01-12 01:51:13.541 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:13.542 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook - - - 302 0 - 16.0840ms
+2024-01-12 01:51:13.547 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:13.548 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:13.548 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:13.550 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:13.552 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.1288ms.
+2024-01-12 01:51:13.553 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.7044ms
+2024-01-12 01:51:13.555 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:13.556 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.2707ms
+2024-01-12 01:51:16.011 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:51:16.014 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:16.015 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:16.018 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:16.021 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:16.025 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:16.026 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.5303ms
+2024-01-12 01:51:16.030 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:16.031 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 19.8082ms
+2024-01-12 01:51:16.035 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:16.036 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:16.037 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:16.039 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:16.040 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.1747ms.
+2024-01-12 01:51:16.041 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.5566ms
+2024-01-12 01:51:16.043 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:16.045 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.9695ms
+2024-01-12 01:51:36.753 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:51:37.665 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:38.014 +05:00 [INF] Executed DbCommand (55ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:51:38.058 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:51:38.079 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:51:38.096 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:51:38.205 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:51:38.206 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:51:38.209 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:51:38.210 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:51:38.211 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:51:39.075 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:51:39.129 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:39.145 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:39.157 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:39.328 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:39.367 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:39.373 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 221.0735ms
+2024-01-12 01:51:39.377 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:39.397 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 325.0488ms
+2024-01-12 01:51:39.399 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:39.409 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:39.411 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:39.418 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:39.448 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 33.0292ms.
+2024-01-12 01:51:39.450 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 36.8222ms
+2024-01-12 01:51:39.452 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:39.454 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 55.5686ms
+2024-01-12 01:51:40.093 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:51:40.099 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:40.100 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:40.137 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:40.144 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:40.147 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:40.148 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 46.2788ms
+2024-01-12 01:51:40.148 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:40.150 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 57.1776ms
+2024-01-12 01:51:40.155 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:40.158 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:40.158 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:40.160 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:40.162 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.1939ms.
+2024-01-12 01:51:40.164 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.6922ms
+2024-01-12 01:51:40.165 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:40.166 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 10.8756ms
+2024-01-12 01:51:40.623 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:51:40.626 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:40.627 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:40.629 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:40.632 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:40.636 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:40.637 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 9.1432ms
+2024-01-12 01:51:40.638 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:40.639 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 16.4705ms
+2024-01-12 01:51:40.644 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:40.645 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:40.646 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:40.649 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:40.652 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 3.1745ms.
+2024-01-12 01:51:40.654 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 4.9135ms
+2024-01-12 01:51:40.655 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:40.657 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 13.0407ms
+2024-01-12 01:51:42.393 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/Add - -
+2024-01-12 01:51:42.395 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:42.396 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:42.398 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:42.403 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:42.408 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:42.408 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 11.1401ms
+2024-01-12 01:51:42.409 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:42.410 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/Add - - - 302 0 - 17.7687ms
+2024-01-12 01:51:42.415 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:42.416 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:42.417 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:42.419 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:42.420 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 0.9622ms.
+2024-01-12 01:51:42.421 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.4296ms
+2024-01-12 01:51:42.422 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:42.423 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 8.7233ms
+2024-01-12 01:51:44.262 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook - -
+2024-01-12 01:51:44.264 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:44.265 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:44.269 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:51:44.271 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:51:44.276 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:51:44.277 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.3263ms
+2024-01-12 01:51:44.277 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:51:44.278 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook - - - 302 0 - 16.3263ms
+2024-01-12 01:51:44.283 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:51:44.284 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:44.285 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:51:44.286 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:51:44.287 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 0.8388ms.
+2024-01-12 01:51:44.288 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.13ms
+2024-01-12 01:51:44.290 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:51:44.291 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 8.3470ms
+2024-01-12 01:52:31.528 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:52:32.345 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:32.677 +05:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:52:32.720 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:52:32.740 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:52:32.757 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:52:32.878 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:52:32.879 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:52:32.882 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:52:32.883 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:52:32.884 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:52:33.767 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:52:33.817 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:33.834 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:33.844 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:34.022 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:34.053 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:34.061 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 219.9286ms
+2024-01-12 01:52:34.064 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:34.083 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 319.1585ms
+2024-01-12 01:52:34.087 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:34.098 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:34.101 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:34.111 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:34.145 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 37.0092ms.
+2024-01-12 01:52:34.147 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 40.3806ms
+2024-01-12 01:52:34.148 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:34.150 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 63.0624ms
+2024-01-12 01:52:34.835 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:52:34.841 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:34.842 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:34.879 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:34.883 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:34.886 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:34.887 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 42.8095ms
+2024-01-12 01:52:34.887 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:34.889 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 53.7893ms
+2024-01-12 01:52:34.893 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:34.894 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:34.895 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:34.897 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:34.899 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.9145ms.
+2024-01-12 01:52:34.900 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.3462ms
+2024-01-12 01:52:34.902 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:34.903 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 10.2182ms
+2024-01-12 01:52:35.340 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:52:35.343 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:35.344 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:35.349 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:35.352 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:35.356 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:35.357 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.7925ms
+2024-01-12 01:52:35.358 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:35.359 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 19.5121ms
+2024-01-12 01:52:35.364 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:35.365 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:35.366 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:35.369 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:35.370 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.5792ms.
+2024-01-12 01:52:35.371 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.8873ms
+2024-01-12 01:52:35.373 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:35.374 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.9665ms
+2024-01-12 01:52:35.663 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:52:35.665 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:35.665 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:35.669 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:35.672 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:35.676 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:35.677 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.4122ms
+2024-01-12 01:52:35.678 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:35.678 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 15.5220ms
+2024-01-12 01:52:35.683 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:35.684 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:35.685 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:35.687 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:35.688 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.1553ms.
+2024-01-12 01:52:35.689 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.5293ms
+2024-01-12 01:52:35.692 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:35.693 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 10.1212ms
+2024-01-12 01:52:35.840 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:52:35.843 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:35.844 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:35.846 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:35.849 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:35.852 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:35.852 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 6.4247ms
+2024-01-12 01:52:35.853 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:35.854 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 13.9289ms
+2024-01-12 01:52:35.859 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:35.860 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:35.861 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:35.863 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:35.864 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 0.9529ms.
+2024-01-12 01:52:35.865 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.5275ms
+2024-01-12 01:52:35.866 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:35.868 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.3077ms
+2024-01-12 01:52:39.791 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook - -
+2024-01-12 01:52:39.793 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:39.793 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:39.795 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:39.800 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:39.803 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:39.804 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.9503ms
+2024-01-12 01:52:39.805 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:39.806 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook - - - 302 0 - 15.5039ms
+2024-01-12 01:52:39.810 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:39.812 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:39.813 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:39.814 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:39.815 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 0.9023ms.
+2024-01-12 01:52:39.817 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.3797ms
+2024-01-12 01:52:39.818 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:39.819 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.6473ms
+2024-01-12 01:52:41.796 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/add - -
+2024-01-12 01:52:41.798 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:41.799 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:41.801 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:52:41.804 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:52:41.808 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:52:41.809 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 7.6646ms
+2024-01-12 01:52:41.809 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:52:41.810 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/add - - - 302 0 - 15.0840ms
+2024-01-12 01:52:41.815 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:52:41.816 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:41.817 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:52:41.818 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:52:41.820 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.4596ms.
+2024-01-12 01:52:41.821 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.8595ms
+2024-01-12 01:52:41.823 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:52:41.824 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 8.9884ms
+2024-01-12 01:53:11.220 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:53:12.155 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:12.502 +05:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:53:12.547 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:53:12.571 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:53:12.590 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:53:12.711 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:53:12.712 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:53:12.715 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:53:12.716 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:53:12.717 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:53:13.291 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:53:13.345 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:13.362 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:13.374 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:13.569 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:13.605 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:13.611 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 242.616ms
+2024-01-12 01:53:13.614 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:13.636 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:13.636 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 347.7727ms
+2024-01-12 01:53:13.641 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:13.649 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:13.657 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:13.691 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 38.0267ms.
+2024-01-12 01:53:13.694 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 42.1368ms
+2024-01-12 01:53:13.695 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:13.698 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 61.8279ms
+2024-01-12 01:53:14.322 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:14.329 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:14.329 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:14.368 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:14.372 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:14.376 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:14.377 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 45.6523ms
+2024-01-12 01:53:14.379 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:14.381 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 58.8766ms
+2024-01-12 01:53:14.386 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:14.388 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:14.389 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:14.391 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:14.393 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.0074ms.
+2024-01-12 01:53:14.394 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.3306ms
+2024-01-12 01:53:14.395 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:14.397 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 11.0418ms
+2024-01-12 01:53:14.818 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:14.821 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:14.822 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:14.825 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:14.829 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:14.832 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:14.833 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.8811ms
+2024-01-12 01:53:14.834 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:14.836 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 17.5092ms
+2024-01-12 01:53:14.840 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:14.841 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:14.842 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:14.844 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:14.846 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.8719ms.
+2024-01-12 01:53:14.848 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.3156ms
+2024-01-12 01:53:14.850 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:14.852 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 11.7713ms
+2024-01-12 01:53:17.157 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/Add - -
+2024-01-12 01:53:17.159 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:17.160 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:17.163 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:17.167 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:17.171 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:17.171 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.4367ms
+2024-01-12 01:53:17.172 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:17.173 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/Add - - - 302 0 - 16.4498ms
+2024-01-12 01:53:17.178 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:17.180 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:17.181 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:17.183 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:17.184 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.6457ms.
+2024-01-12 01:53:17.185 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.8435ms
+2024-01-12 01:53:17.187 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:17.188 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.8675ms
+2024-01-12 01:53:19.310 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook - -
+2024-01-12 01:53:19.312 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:19.313 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:19.317 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:19.321 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:19.324 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:19.325 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.9442ms
+2024-01-12 01:53:19.326 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:19.327 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook - - - 302 0 - 17.0765ms
+2024-01-12 01:53:19.331 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:19.333 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:19.334 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:19.336 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:19.337 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.233ms.
+2024-01-12 01:53:19.338 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.6538ms
+2024-01-12 01:53:19.340 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:19.341 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.9692ms
+2024-01-12 01:53:35.873 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:53:36.770 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:37.121 +05:00 [INF] Executed DbCommand (55ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:53:37.164 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:53:37.184 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:53:37.203 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:53:37.379 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:53:37.380 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:53:37.383 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:53:37.384 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:53:37.384 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:53:38.209 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:53:38.260 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:38.278 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:38.290 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:38.450 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:38.480 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:38.486 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 201.436ms
+2024-01-12 01:53:38.488 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:38.505 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:38.505 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 298.3110ms
+2024-01-12 01:53:38.508 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:38.518 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:38.526 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:38.556 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 33.2578ms.
+2024-01-12 01:53:38.558 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 36.4172ms
+2024-01-12 01:53:38.559 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:38.561 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 55.9309ms
+2024-01-12 01:53:39.593 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:39.601 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:39.602 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:39.642 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:39.646 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:39.649 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:39.650 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 44.9115ms
+2024-01-12 01:53:39.651 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:39.652 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 59.1910ms
+2024-01-12 01:53:39.656 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:39.658 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:39.658 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:39.661 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:39.662 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.8009ms.
+2024-01-12 01:53:39.664 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.2818ms
+2024-01-12 01:53:39.665 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:39.666 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 10.7684ms
+2024-01-12 01:53:40.021 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:40.024 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:40.025 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:40.028 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:40.032 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:40.035 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:40.035 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.1163ms
+2024-01-12 01:53:40.036 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:40.037 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 15.8364ms
+2024-01-12 01:53:40.044 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:40.045 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:40.046 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:40.048 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:40.049 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.6082ms.
+2024-01-12 01:53:40.050 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.8394ms
+2024-01-12 01:53:40.052 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:40.053 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 9.5414ms
+2024-01-12 01:53:40.203 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:40.204 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:40.206 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:40.207 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:40.210 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:40.213 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:40.214 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 7.076ms
+2024-01-12 01:53:40.215 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:40.216 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 12.9544ms
+2024-01-12 01:53:40.220 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:40.221 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:40.221 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:40.223 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:40.224 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 0.7895ms.
+2024-01-12 01:53:40.225 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.118ms
+2024-01-12 01:53:40.227 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:40.228 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 8.5923ms
+2024-01-12 01:53:40.375 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:40.376 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:40.377 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:40.380 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:40.384 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:40.387 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:40.388 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.1532ms
+2024-01-12 01:53:40.389 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:40.390 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 15.5033ms
+2024-01-12 01:53:40.395 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:40.396 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:40.396 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:40.398 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:40.400 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.2874ms.
+2024-01-12 01:53:40.401 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 2.7666ms
+2024-01-12 01:53:40.402 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:40.404 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 8.9842ms
+2024-01-12 01:53:53.925 +05:00 [INF] User profile is available. Using 'C:\Users\Domoved\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-12 01:53:54.733 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:55.056 +05:00 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:53:55.098 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-01-12 01:53:55.120 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-01-12 01:53:55.138 +05:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-12 01:53:55.258 +05:00 [INF] Now listening on: https://localhost:7177
+2024-01-12 01:53:55.259 +05:00 [INF] Now listening on: http://localhost:5177
+2024-01-12 01:53:55.263 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-12 01:53:55.264 +05:00 [INF] Hosting environment: Development
+2024-01-12 01:53:55.264 +05:00 [INF] Content root path: H:\Programs\C#\BiblioMag\BiblioMag\
+2024-01-12 01:53:55.716 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/ - -
+2024-01-12 01:53:55.779 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:55.804 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:55.831 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:56.086 +05:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:56.127 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:56.137 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 314.0805ms
+2024-01-12 01:53:56.139 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:56.160 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/ - - - 302 0 - 447.8156ms
+2024-01-12 01:53:56.161 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:56.176 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:56.180 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:56.187 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:56.221 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 36.762ms.
+2024-01-12 01:53:56.223 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 40.1515ms
+2024-01-12 01:53:56.227 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:56.231 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 70.3430ms
+2024-01-12 01:53:56.857 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/AddBook? - -
+2024-01-12 01:53:56.863 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:56.864 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:56.904 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:53:56.908 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:53:56.912 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:53:56.913 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 46.2385ms
+2024-01-12 01:53:56.915 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:53:56.916 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/AddBook? - - - 302 0 - 58.9223ms
+2024-01-12 01:53:56.920 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:53:56.922 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:56.923 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:53:56.925 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:53:56.927 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 2.2423ms.
+2024-01-12 01:53:56.929 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 4.1125ms
+2024-01-12 01:53:56.931 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:53:56.932 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 12.1080ms
+2024-01-12 01:54:00.153 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Add - -
+2024-01-12 01:54:00.155 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:54:00.156 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:54:00.160 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:54:00.164 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:54:00.168 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:54:00.169 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 9.9308ms
+2024-01-12 01:54:00.170 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:54:00.172 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Add - - - 302 0 - 18.1587ms
+2024-01-12 01:54:00.175 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:54:00.177 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:54:00.177 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:54:00.181 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:54:00.183 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.9303ms.
+2024-01-12 01:54:00.184 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.258ms
+2024-01-12 01:54:00.185 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:54:00.187 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 11.2730ms
+2024-01-12 01:54:02.010 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Book/Add - -
+2024-01-12 01:54:02.013 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:54:02.014 +05:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:54:02.016 +05:00 [INF] Entity Framework Core 6.0.25 initialized 'LibraryDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2024-01-12 01:54:02.019 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."Author", b."FileContent", b."Genre", b."ReadingStatus", b."Title", b."Year"
+FROM "Books" AS b
+2024-01-12 01:54:02.023 +05:00 [INF] Executing RedirectResult, redirecting to /Home/NoBooksFound.
+2024-01-12 01:54:02.024 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.Index (BiblioMag) in 8.6726ms
+2024-01-12 01:54:02.027 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.Index (BiblioMag)'
+2024-01-12 01:54:02.029 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Book/Add - - - 302 0 - 18.7597ms
+2024-01-12 01:54:02.032 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7177/Home/NoBooksFound - -
+2024-01-12 01:54:02.034 +05:00 [INF] Executing endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:54:02.035 +05:00 [INF] Route matched with {action = "NoBooksFound", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NoBooksFound() on controller BiblioMag.Controllers.HomeController (BiblioMag).
+2024-01-12 01:54:02.037 +05:00 [INF] Executing ViewResult, running view NoBooksFound.
+2024-01-12 01:54:02.039 +05:00 [INF] Executed ViewResult - view NoBooksFound executed in 1.8304ms.
+2024-01-12 01:54:02.041 +05:00 [INF] Executed action BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag) in 3.8374ms
+2024-01-12 01:54:02.042 +05:00 [INF] Executed endpoint 'BiblioMag.Controllers.HomeController.NoBooksFound (BiblioMag)'
+2024-01-12 01:54:02.044 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7177/Home/NoBooksFound - - - 200 - text/html;+charset=utf-8 11.7299ms

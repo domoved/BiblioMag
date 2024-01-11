@@ -10,17 +10,17 @@ namespace BiblioMag.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Введите название книги")]
-        public string Title { get; set; }
+        public string Title { get; set; }   = string.Empty;
 
         [Required(ErrorMessage = "Введите автора книги")]
-        public string Author { get; set; }
+        public string Author { get; set; } = string.Empty;
 
-        public string? Genre { get; set; }
+        public string? Genre { get; set; } = string.Empty;
 
-        public int Year { get; set; }
+        public int Year { get; set; } = 0;
 
         public byte[]? FileContent { get; set; }
 
-        public ReadingStatus ReadingStatus { get; set; }
+        public ReadingStatus ReadingStatus { get; set; } = ReadingStatus.NotStarted;
     }
 }

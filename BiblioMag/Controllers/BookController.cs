@@ -1,77 +1,146 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using BiblioMag.Models;
 using BiblioMag.Models.Services;
+using System;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace BiblioMag.Controllers
 {
+    [Route("[controller]")]
     public class BookController : Controller
     {
-        private readonly IBookService bookService;
+        private readonly IBookService BookService;
 
         public BookController(IBookService bookService)
         {
-            this.bookService = bookService;
+            BookService = bookService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var books = await bookService.GetAllBooksAsync();
-            return View(books);
+            try
+            {
+                var books = await BookService.GetAllBooksAsync();
+                return View(books);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
+            }
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Details(int id)
         {
-            var book = await bookService.GetBookByIdAsync(id);
-            return View(book);
+            try
+            {
+                var book = await BookService.GetBookByIdAsync(id);
+                if (book == null)
+                {
+                    return NotFound("Book not found");
+                }
+                return View(book);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving book details: " + ex.Message);
+            }
         }
 
-        [HttpGet]
+        [HttpGet("AddBook")]
         public IActionResult Add()
         {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(Book newBook)
-        {
-            if (ModelState.IsValid)
+            try
             {
-                await bookService.AddBookAsync(newBook);
-                return RedirectToAction("Index");
+                var newBook = new Book();
+                return View(newBook);
             }
-            return View(newBook);
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding a new book: " + ex.Message);
+            }
         }
 
-        [HttpPost]
+        [HttpPost("AddBook")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Add(Book newBook, IFormFile file)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (file != null && file.Length > 0)
+                    {
+                        // Проверка типа файла
+                        if (file.ContentType != "application/pdf")
+                        {
+                            ModelState.AddModelError("FileContent", "Загруженный файл должен быть в формате PDF.");
+                            return View(newBook);
+                        }
+
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(memoryStream);
+                            newBook.FileContent = memoryStream.ToArray();
+                        }
+                    }
+
+                    await BookService.AddBookAsync(newBook);
+                    return RedirectToAction("Index");
+                }
+
+                return View(newBook);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Произошла ошибка при добавлении новой книги: " + ex.Message);
+            }
+        }
+
+
+        [HttpPost("{id}/remove")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Remove(int id)
         {
-            var success = await bookService.RemoveBookAsync(id);
-            if (success)
+            try
             {
-                return RedirectToAction("Index");
+                var success = await BookService.RemoveBookAsync(id);
+                if (success)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound("Book not found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while removing the book: " + ex.Message);
             }
         }
 
-        [HttpGet]
+        [HttpGet("{id}/download")]
         public async Task<IActionResult> Download(int id)
         {
-            var result = await bookService.DownloadBookAsync(id);
-            if (result != null)
+            try
             {
-                return File(result, "application/txt", "FileNameForDownload.txt");
+                var result = await BookService.DownloadBookAsync(id);
+                if (result != null)
+                {
+                    return File(result, "application/pdf", "FileDownloadName.pdf");
+                }
+                else
+                {
+                    return NotFound("Book not found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while downloading the book: " + ex.Message);
             }
         }
     }

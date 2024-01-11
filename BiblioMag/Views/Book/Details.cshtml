@@ -1,6 +1,9 @@
-﻿@model BiblioMag.Models.Book
+﻿<h2>@Model.Title</h2>
+<p>Author: @Model.Author</p>
 
-<h2>@Model.Title</h2>
-<p>Автор: @Model.Author</p>
+@foreach (var property in Model.Properties)
+{
+    <p>@property.Key: @property.Value</p>
+}
 
-<a asp-controller="Book" asp-action="Download" asp-route-id="@Model.Id">Скачать книгу</a>
+<a asp-controller="Download" asp-action="DownloadBook" asp-route-bookId="@Model.Id">Скачать книгу</a>

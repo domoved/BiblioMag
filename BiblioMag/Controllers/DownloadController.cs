@@ -1,30 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using BiblioMag.Models.Services;
+using System;
 
 namespace BiblioMag.Controllers
 {
+    [Route("[controller]")]
     public class DownloadController : Controller
     {
-        private readonly IDownloadService downloadService;
+        private readonly IDownloadService DownloadService;
 
         public DownloadController(IDownloadService downloadService)
         {
-            this.downloadService = downloadService;
+            DownloadService = downloadService;
         }
 
-        [HttpGet]
+        [HttpGet("{bookId}/download")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DownloadBook(int bookId)
         {
-            var book = await downloadService.GetBookByIdAsync(bookId);
-            if (book == null)
+            try
             {
-                return NotFound();
-            }
+                var book = await DownloadService.GetBookByIdAsync(bookId);
+                if (book == null)
+                {
+                    return NotFound("Book not found");
+                }
 
-            // (доделать) логика для скачивания файла книги и возврата пользователю
-            return Json(new { Message = "Ваша книга скачалась", BookTitle = book.Title });
+                // (доделать) логика для скачивания файла книги и возврата пользователю
+                return Json(new { Message = "Your book has been downloaded", BookTitle = book.Title });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while downloading the book: " + ex.Message);
+            }
         }
     }
 }

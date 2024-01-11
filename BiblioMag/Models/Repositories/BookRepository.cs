@@ -1,55 +1,89 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BiblioMag.Models;
+﻿using BiblioMag.Models;
 using BiblioMag.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace BiblioMag.Models.Repositories
+public class BookRepository : IBookRepository
 {
-    public class BookRepository : IBookRepository
+    private readonly LibraryDbContext DbContext;
+
+    public BookRepository(LibraryDbContext dbContext)
     {
-        private readonly LibraryDbContext dbContext;
+        DbContext = dbContext;
+    }
 
-        public BookRepository(LibraryDbContext dbContext)
+    public async Task<Book> AddBookAsync(Book book)
+    {
+        try
         {
-            this.dbContext = dbContext;
-        }
-
-        public async Task<Book> AddBookAsync(Book book)
-        {
-            dbContext.Books.Add(book);
-            await dbContext.SaveChangesAsync();
+            DbContext.Books.Add(book);
+            await DbContext.SaveChangesAsync();
             return book;
         }
-
-        public async Task<Book> GetBookByIdAsync(int bookId)
+        catch (Exception ex)
         {
-            return await dbContext.Books.FirstOrDefaultAsync(b => b.Id == bookId);
+            throw new Exception("Failed to add book: " + ex.Message);
         }
+    }
 
-        public async Task<IEnumerable<Book>> GetAllBooksAsync()
+    public async Task<Book> GetBookByIdAsync(int bookId)
+    {
+        try
         {
-            return await dbContext.Books.ToListAsync();
+            return await DbContext.Books.FirstOrDefaultAsync(x => x.Id == bookId);
         }
-
-        public async Task<bool> RemoveBookAsync(int bookId)
+        catch (Exception ex)
         {
-            var book = await dbContext.Books.FindAsync(bookId);
+            throw new Exception("Failed to get book by id: " + ex.Message);
+        }
+    }
+
+    public async Task<IEnumerable<Book>> GetAllBooksAsync()
+    {
+        try
+        {
+            return await DbContext.Books.ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Failed to get all books: " + ex.Message);
+        }
+    }
+
+    public async Task<bool> RemoveBookAsync(int bookId)
+    {
+        try
+        {
+            var book = await DbContext.Books.FindAsync(bookId);
             if (book != null)
             {
-                dbContext.Books.Remove(book);
-                await dbContext.SaveChangesAsync();
+                DbContext.Books.Remove(book);
+                await DbContext.SaveChangesAsync();
                 return true;
             }
             return false;
         }
-
-        public async Task<Book> UpdateBookAsync(Book book)
+        catch (Exception ex)
         {
-            dbContext.Entry(book).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-            return book;
+            throw new Exception("Failed to remove book: " + ex.Message);
+        }
+    }
+
+    public async Task<Book> UpdateBookAsync(Book book)
+    {
+        try
+        {
+            var existingBook = await DbContext.Books.FindAsync(book.Id);
+            if (existingBook != null)
+            {
+                DbContext.Entry(existingBook).CurrentValues.SetValues(book);
+                await DbContext.SaveChangesAsync();
+                return existingBook;
+            }
+            return null;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Failed to update book: " + ex.Message);
         }
     }
 }

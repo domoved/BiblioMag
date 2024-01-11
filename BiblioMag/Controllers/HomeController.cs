@@ -1,37 +1,65 @@
 ﻿using BiblioMag.Models.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System;
+using System.Threading.Tasks;
 
 namespace BiblioMag.Controllers
 {
+    [Route("Home")]
     public class HomeController : Controller
     {
-        private readonly IBookService bookService;
+        private readonly IBookService BookService;
 
         public HomeController(IBookService bookService)
         {
-            this.bookService = bookService;
+            BookService = bookService;
         }
-
-        [HttpGet]
-        [ValidateAntiForgeryToken]
+        [HttpGet("Index")]
         public async Task<IActionResult> Index()
         {
-            var books = await bookService.GetAllBooksAsync();
-            return View(books);
+            try
+            {
+                var books = await BookService.GetAllBooksAsync();
+                if (books.Any())
+                {
+                    return View(books);
+                }
+                else
+                {
+                    return RedirectToAction("NoBooksFound");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
+            }
         }
 
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Details(int id)
+        [HttpGet("AddBook")]
+        public IActionResult AddBook()
         {
-            var book = await bookService.GetBookByIdAsync(id);
-            if (book == null)
+            try
             {
-                return NotFound();
+                return View();
             }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding a new book: " + ex.Message);
+            }
+        }
 
-            // (доделать) логика для скачивания файла книги и возврата пользователю
-            return Json(new { Message = "Ваша книга скачалась", BookTitle = book.Title });
+        [HttpGet("NoBooksFound")]
+        public IActionResult NoBooksFound()
+        {
+            try
+            {
+                return RedirectToAction("Add", "Book");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
+            }
         }
     }
 }

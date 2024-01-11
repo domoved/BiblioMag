@@ -1,26 +1,28 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BiblioMag.Models;
-using BiblioMag.Models.Services;
-using Microsoft.EntityFrameworkCore;
+﻿using BiblioMag.Models.Services;
 
 namespace BiblioMag.Models.Repositories
 {
     public class ReadingSessionRepository : IReadingSessionRepository
     {
-        private readonly LibraryDbContext dbContext;
+        private readonly LibraryDbContext DbContext;
 
         public ReadingSessionRepository(LibraryDbContext dbContext)
         {
-            this.dbContext = dbContext;
+            DbContext = dbContext;
         }
 
         public async Task<ReadingSession> AddReadingSessionAsync(ReadingSession session)
         {
-            dbContext.ReadingSessions.Add(session);
-            await dbContext.SaveChangesAsync();
-            return session;
+            try
+            {
+                DbContext.ReadingSessions.Add(session);
+                await DbContext.SaveChangesAsync();
+                return session;
+            }
+            catch
+            {
+                throw new Exception("Failed to add reading session");
+            }
         }
     }
 }

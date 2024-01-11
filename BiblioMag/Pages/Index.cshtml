@@ -1,7 +1,7 @@
 ﻿@page
 @model IEnumerable<BiblioMag.Models.Book>
 @{
-    ViewData["Title"] = "BibioMag";
+    ViewData["Title"] = "BiblioMag";
 }
 
 <h2>Список книг</h2>
@@ -20,10 +20,10 @@
             <tr>
                 <td>@book.Title</td>
                 <td>@book.Author</td>
-                <td><a asp-controller="Books" asp-action="Detail" asp-route-id="@book.Id">Подробнее</a></td>
+                <td><a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Подробнее</a></td>
             </tr>
         }
     </tbody>
 </table>
 
-<a asp-controller="Books" asp-action="Add">Добавить книгу</a>
+<a asp-controller="Book" asp-action="Add">Добавить книгу</a>

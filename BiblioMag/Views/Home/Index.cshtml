@@ -1,29 +1,28 @@
-﻿@page
-@model IEnumerable<BiblioMag.Models.Book>
-@{
-    ViewData["Title"] = "BibioMag";
-}
+﻿@model IEnumerable<BiblioMag.Models.Book>
 
 <h2>Список книг</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var book in Model)
-        {
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
             <tr>
-                <td>@book.Title</td>
-                <td>@book.Author</td>
-                <td><a asp-controller="Books" asp-action="Detail" asp-route-id="@book.Id">Подробнее</a></td>
+                <th>Title</th>
+                <th>Author</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td><a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Подробнее</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
-<a asp-controller="Books" asp-action="Add">Добавить книгу</a>
+<a asp-controller="Book" asp-action="Add">Добавить книгу</a>

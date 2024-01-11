@@ -20,11 +20,11 @@ namespace BiblioMag.Controllers
             try
             {
                 var books = await BookService.GetAllBooksAsync();
-                return View(books);
+                return View("Index", books);
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "При получении книг произошла ошибка: " + ex.Message);
             }
         }
 
@@ -36,14 +36,20 @@ namespace BiblioMag.Controllers
                 var book = await BookService.GetBookByIdAsync(id);
                 if (book == null)
                 {
-                    return NotFound("Book not found");
+                    return NotFound("Книги не найдены");
                 }
-                return View(book);
+                return View("Details", book);
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving book details: " + ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "При получении сведений о книге произошла ошибка: " + ex.Message);
             }
+        }
+
+        [HttpGet("Add")]
+        public IActionResult Add()
+        {
+            return View("Add");
         }
 
         [HttpPost("Add")]
@@ -59,7 +65,7 @@ namespace BiblioMag.Controllers
                         if (file.ContentType != "application/pdf")
                         {
                             ModelState.AddModelError("FileContent", "Загруженный файл должен быть в формате PDF.");
-                            return View(newBook);
+                            return View("Add", newBook);
                         }
 
                         using var memoryStream = new MemoryStream();
@@ -68,15 +74,17 @@ namespace BiblioMag.Controllers
                     }
 
                     await BookService.AddBookAsync(newBook);
+                    TempData["SuccessMessage"] = "Книга успешно загружена";
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index", "Home");
+                TempData["ErrorMessage"] = "Произошла ошибка при загрузке книги";
+                return View("Add", newBook);
             }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Произошла ошибка при добавлении новой книги: " + ex.Message);
             }
         }
-
 
         [HttpPost("Remove/{id}")]
         [ValidateAntiForgeryToken]
@@ -91,12 +99,12 @@ namespace BiblioMag.Controllers
                 }
                 else
                 {
-                    return NotFound("Book not found");
+                    return NotFound("Книга не найдена");
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while removing the book: " + ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "При удалении книги произошла ошибка: " + ex.Message);
             }
         }
 
@@ -112,12 +120,12 @@ namespace BiblioMag.Controllers
                 }
                 else
                 {
-                    return NotFound("Book not found");
+                    return NotFound("Книга не найдена");
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while downloading the book: " + ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "При загрузке книги произошла ошибка: " + ex.Message);
             }
         }
     }

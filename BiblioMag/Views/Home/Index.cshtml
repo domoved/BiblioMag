@@ -6,25 +6,21 @@
 {
     <table class="table">
         <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th></th>
-            </tr>
-        </thead>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.First().Title)</th>
+        <th>@Html.DisplayNameFor(m => m.First().Author)</th>
+        <th></th>
+    </tr>
+</thead>
         <tbody>
             @foreach (var book in Model)
             {
                 <tr>
                     <td>@book.Title</td>
                     <td>@book.Author</td>
-                    <td><a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Подробнее</a></td>
+                    <td><a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id">Подробнее</a></td>
                 </tr>
             }
         </tbody>
     </table>
 }
-
-<form method="get" action="/Book/Add">
-    <button type="submit" class="btn btn-primary">Добавить книгу</button>
-</form>

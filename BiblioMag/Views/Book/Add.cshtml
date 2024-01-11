@@ -1,32 +1,37 @@
 ﻿@model BiblioMag.Models.Book
 
-<h2>Добавить новую книгу (1)</h2>
+<h2>Добавить новую книгу</h2>
 
 <form asp-controller="Book" asp-action="Add" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     @Html.AntiForgeryToken()
-    @foreach (var property in ViewData.ModelMetadata.Properties)
-    {
-
-        
-        if (property.PropertyName != "Id" && 
-            property.PropertyName != "FileContent" &&
-            property.PropertyName != "ReadingStatus")
-        {
-            <p>@property.PropertyName</p>
-            <div class="form-group">
-                <label asp-for="@property.PropertyName" class="control-label"></label>
-                <input asp-for="@property.PropertyName" class="form-control" />
-                <span asp-validation-for="@property.PropertyName" class="text-danger"></span>
-            </div>
-        }
-    }
-    
+    @foreach (var property in ViewData.ModelMetadata.Properties.Where(p => p.PropertyName 
+    != "Id" && p.PropertyName != "FileContent" && p.PropertyName != "ReadingStatus"))
+{
+    <p>@property.PropertyName</p>
+    <div class="form-group">
+        <label asp-for="@property.PropertyName" class="control-label"></label>
+        <input asp-for="@property.PropertyName" class="form-control" />
+        <span asp-validation-for="@property.PropertyName" class="text-danger"></span>
+    </div>
+}
     <p>FileContent</p>
     <div class="form-group">
-        <label asp-for="FileContent" class="control-label"></label>
-        <input asp-for="FileContent" type="file" class="form-control" />
-        <span asp-validation-for="FileContent" class="text-danger"></span>
-    </div>   
-    <button type="submit" class="btn btn-primary">Добавить книгу</button>
+    <label asp-for="FileContent" class="control-label"></label>
+    <input asp-for="FileContent" type="file" class="form-control" />
+    <span asp-validation-for="FileContent" class="text-danger"></span>
+</div>     
+<button type="submit" class="btn btn-primary">Добавить книгу</button>
 </form>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}

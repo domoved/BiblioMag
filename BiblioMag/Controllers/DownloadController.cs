@@ -13,7 +13,7 @@ namespace BiblioMag.Controllers
             DownloadService = downloadService;
         }
 
-        [HttpGet("DownloadBook/{bookId}")]
+        [HttpGet("{bookId}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DownloadBook(int bookId)
         {

@@ -48,6 +48,11 @@ app.Use((context, next) =>
 
     return next(context);
 });
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -77,6 +82,11 @@ app.UseEndpoints(endpoints =>
         name: "noBooksFound",
         pattern: "Home/NoBooksFound",
         defaults: new { controller = "Home", action = "NoBooksFound" });
+
+    endpoints.MapControllerRoute(
+        name: "bookIndex",
+        pattern: "Book",
+        defaults: new { controller = "Book", action = "Index" });
 
     endpoints.MapControllerRoute(
         name: "default",

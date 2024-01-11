@@ -14,11 +14,12 @@ namespace BiblioMag.Controllers
         {
             BookService = bookService;
         }
-        [HttpGet("Index")]
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             try
-            {
+            {   
                 var books = await BookService.GetAllBooksAsync();
                 if (books.Any())
                 {
@@ -31,21 +32,7 @@ namespace BiblioMag.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
-            }
-        }
-        [HttpGet("AddBook")]
-        public IActionResult AddBook()
-        {
-            try
-            {
-                Log.Information("AddBook method called");
-                return RedirectToAction("Add", "Book", new { area = "" });
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding a new book: " + ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "При получении книг произошла ошибка: " + ex.Message);
             }
         }
 
@@ -58,7 +45,7 @@ namespace BiblioMag.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving books: " + ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "При получении книг произошла ошибка:" + ex.Message);
             }
         }
     }

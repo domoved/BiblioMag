@@ -70,38 +70,6 @@ namespace BiblioMag.Models.Services
                 throw new Exception("Failed to remove book: " + ex.Message);
             }
         }
-
-        public async Task<byte[]?> DownloadBookAsync(int bookId)
-        {
-            try
-            {
-                var book = await DbContext.Books.FindAsync(bookId);
-                if (book != null)
-                {
-                    return book.FileContent;
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Failed to download book: " + ex.Message);
-            }
-        }
-
-        public async Task<ReadingSession> AddReadingSessionAsync(ReadingSession session)
-        {
-            try
-            {
-                DbContext.ReadingSessions.Add(session);
-                await DbContext.SaveChangesAsync();
-                return session;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Failed to add reading session: " + ex.Message);
-            }
-        }
-
         public async Task<Book> UpdateBookAsync(Book book)
         {
             try
@@ -117,3 +85,20 @@ namespace BiblioMag.Models.Services
         }
     }
 }
+
+
+
+
+//public async Task<ReadingSession> AddReadingSessionAsync(ReadingSession session)
+//{
+//    try
+//    {
+//        DbContext.ReadingSessions.Add(session);
+//        await DbContext.SaveChangesAsync();
+//        return session;
+//    }
+//    catch (Exception ex)
+//    {
+//        throw new Exception("Failed to add reading session: " + ex.Message);
+//    }
+//}

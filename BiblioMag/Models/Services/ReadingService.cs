@@ -17,11 +17,8 @@ namespace BiblioMag.Models.Services
             try
             {
                 var book = await BookRepository.GetBookByIdAsync(bookId);
-                if (book != null)
-                {
-                    book.ReadingStatus = ReadingStatus.Started;
-                    await BookRepository.UpdateBookAsync(book);
-                }
+                book.ReadingStatus = ReadingStatus.Started;
+                await BookRepository.UpdateBookAsync(book);
             }
             catch (Exception ex)
             {
@@ -34,11 +31,8 @@ namespace BiblioMag.Models.Services
             try
             {
                 var book = await BookRepository.GetBookByIdAsync(bookId);
-                if (book != null)
-                {
-                    book.ReadingStatus = ReadingStatus.Ended;
-                    await BookRepository.UpdateBookAsync(book);
-                }
+                book.ReadingStatus = ReadingStatus.Ended;
+                await BookRepository.UpdateBookAsync(book);
             }
             catch (Exception ex)
             {

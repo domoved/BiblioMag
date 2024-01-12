@@ -20,10 +20,6 @@ namespace BiblioMag.Controllers
             try
             {
                 var book = await DownloadService.GetBookByIdAsync(bookId);
-                if (book == null)
-                {
-                    return NotFound("Book not found");
-                }
 
                 // (доделать) логика для скачивания файла книги и возврата пользователю
                 return Json(new { Message = "Your book has been downloaded", BookTitle = book.Title });

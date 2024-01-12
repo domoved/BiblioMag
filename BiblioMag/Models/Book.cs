@@ -7,6 +7,10 @@ namespace BiblioMag.Models
 {
     public class Book
     {
+        public Book()
+        {
+        }
+
         public int Id { get; set; }
         [Required] 
         public string Title { get; set; }
@@ -17,6 +21,7 @@ namespace BiblioMag.Models
 
         public int Year { get; set; } = 1;
 
+        [DataType(DataType.Upload)]
         public byte[]? FileContent { get; set; }
 
         public ReadingStatus ReadingStatus { get; set; } = 0;

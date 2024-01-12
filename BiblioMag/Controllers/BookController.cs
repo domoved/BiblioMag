@@ -34,10 +34,6 @@ namespace BiblioMag.Controllers
             try
             {
                 var book = await BookService.GetBookByIdAsync(id);
-                if (book == null)
-                {
-                    return NotFound("Книги не найдены");
-                }
                 return View("Details", book);
             }
             catch (Exception ex)
@@ -92,15 +88,12 @@ namespace BiblioMag.Controllers
         {
             try
             {
-                var success = await BookService.RemoveBookAsync(id);
-                if (success)
+                if (await BookService.RemoveBookAsync(id))
                 {
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    return NotFound("Книга не найдена");
-                }
+
+                return NotFound("Книга не найдена");
             }
             catch (Exception ex)
             {
@@ -113,15 +106,13 @@ namespace BiblioMag.Controllers
         {
             try
             {
-                var result = await BookService.DownloadBookAsync(id);
+                var result = await DownloadService.DownloadBookAsync(id);
                 if (result != null)
                 {
                     return File(result, "application/pdf", "FileDownloadName.pdf");
                 }
-                else
-                {
-                    return NotFound("Книга не найдена");
-                }
+
+                return NotFound("Книга не найдена");
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BiblioMag.Models.Services
 {
@@ -7,8 +8,11 @@ namespace BiblioMag.Models.Services
     {
         private readonly IBookRepository BookRepository;
 
-        public DownloadService(IBookRepository bookRepository)
+        private static LibraryDbContext DbContext;
+
+        public DownloadService(IBookRepository bookRepository, LibraryDbContext dbContext)
         {
+            DbContext = dbContext;
             BookRepository = bookRepository;
         }
 
@@ -21,6 +25,18 @@ namespace BiblioMag.Models.Services
             catch (Exception ex)
             {
                 throw new Exception("Failed to get book by id: " + ex.Message);
+            }
+        }
+        public static async Task<byte[]?> DownloadBookAsync(int bookId)
+        {
+            try
+            {
+                var book = await DbContext.Books.FindAsync(bookId);
+                return book?.FileContent;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to download book: " + ex.Message);
             }
         }
     }

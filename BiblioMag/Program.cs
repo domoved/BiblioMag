@@ -36,29 +36,27 @@ var app = builder.Build();
 
 app.Use((context, next) =>
 {
-    string path = context.Request.Path.Value;
+    var path = context.Request.Path.Value;
 
-    if (path != null && path.ToLower().Contains("/book/addbook"))
-    {
-        var antiforgery = context.RequestServices.GetRequiredService<IAntiforgery>();
-        var tokens = antiforgery.GetAndStoreTokens(context);
+    if (path == null || !path.ToLower().Contains("/book/addbook")) return next(context);
+    var antiForgery = context.RequestServices.GetRequiredService<IAntiforgery>();
+    var tokens = antiForgery.GetAndStoreTokens(context);
+    if (tokens.RequestToken != null)
         context.Response.Cookies.Append("XDD", tokens.RequestToken,
             new CookieOptions() { HttpOnly = false });
-    }
 
     return next(context);
 });
+
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
     dbContext.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

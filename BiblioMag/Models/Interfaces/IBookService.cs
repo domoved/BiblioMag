@@ -7,6 +7,5 @@
         Task<Book> AddBookAsync(Book book);
         Task<bool> RemoveBookAsync(int bookId);
         Task<Book> UpdateBookAsync(Book book);
-        Task<byte[]?> DownloadBookAsync(int bookId);
     }
 }

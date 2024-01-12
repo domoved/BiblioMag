@@ -25,10 +25,8 @@ namespace BiblioMag.Controllers
                 {
                     return View("Index", books);
                 }
-                else
-                {
-                    return RedirectToAction("NoBooksFound");
-                }
+
+                return RedirectToAction("NoBooksFound");
             }
             catch (Exception ex)
             {
